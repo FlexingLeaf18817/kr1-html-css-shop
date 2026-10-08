@@ -29,6 +29,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -40,28 +44,31 @@ body {
 header,
 main,
 footer {
-  padding: var(--space-lg);
+    padding: var(--space-lg);
 }
 
 header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: var(--color-surface);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-surface);
 }
 
 footer {
-  background-color: var(--color-surface);
+    background-color: var(--color-surface);
 }
 
 section {
-  margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-lg);
 }
 
 section h2 {
-  margin-top: 0;
+    margin-top: 0;
 }
 
+/* ===================================
+   Шапка сайта
+   =================================== */
 .site-header {
     max-width: var(--container-width);
     margin: 0 auto;
@@ -71,31 +78,41 @@ section h2 {
     gap: var(--space-md);
 }
 
-.site-nav {
-    justify-self: end;
-}
-
 .site-logo {
     font-weight: bold;
     text-decoration: none;
     color: var(--color-text);
 }
 
+.site-nav {
+    justify-self: end;
+}
+
+/* ===================================
+   Навигация (Flexbox)
+   =================================== */
 .site-nav__list {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     gap: var(--space-md);
     padding: 0;
-    margin: 0;
+    margin: var(--space-md) 0 0;
     list-style: none;
 }
 
 .site-nav__list a {
+    display: inline-block;
+    padding: var(--space-sm) var(--space-md);
     color: var(--color-primary);
     text-decoration: none;
+    border-radius: var(--radius-sm);
 }
 
 .site-nav__list a:hover {
-    text-decoration: underline;
+    color: var(--color-white);
+    background-color: var(--color-primary);
 }
 
 .site-nav__list a:focus-visible {
@@ -103,6 +120,9 @@ section h2 {
     outline-offset: 3px;
 }
 
+/* ===================================
+   Hero / основные секции
+   =================================== */
 .hero {
     max-width: var(--container-width);
     margin: 0 auto var(--space-xl);
@@ -120,9 +140,24 @@ section h2 {
     margin-top: 0;
 }
 
+/* ===================================
+   Сетка карточек (CSS Grid)
+   =================================== */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-lg);
+}
+
+/* ===================================
+   Карточка товара (Flexbox)
+   =================================== */
 .product-card {
     position: relative;
-    margin-bottom: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: 0;
     padding: var(--space-md);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
@@ -137,6 +172,37 @@ section h2 {
     border-color: var(--color-primary);
 }
 
+.product-card .button {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* ===================================
+   Бейджи на карточках
+   =================================== */
+.product-card__badge {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--color-white);
+    border-radius: var(--radius-sm);
+    z-index: 1;
+}
+
+.product-card__badge--new {
+    background-color: var(--color-primary);
+}
+
+.product-card__badge--discount {
+    background-color: var(--color-danger);
+}
+
+/* ===================================
+   Кнопки
+   =================================== */
 .button {
     display: inline-block;
     padding: var(--space-sm) var(--space-md);
@@ -160,6 +226,9 @@ section h2 {
     cursor: not-allowed;
 }
 
+/* ===================================
+   Дополнительный блок aside
+   =================================== */
 .aside-info {
     max-width: var(--container-width);
     margin: 0 auto var(--space-xl);
@@ -168,17 +237,24 @@ section h2 {
     background-color: var(--color-surface);
 }
 
+/* ===================================
+   Модальное окно (dialog)
+   =================================== */
 .order-dialog {
     width: min(100% - 32px, 560px);
     padding: var(--space-lg);
     border: none;
     border-radius: var(--radius-lg);
+    z-index: 300;
 }
 
 .order-dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+/* ===================================
+   Формы
+   =================================== */
 .form-field {
     margin-bottom: var(--space-md);
 }
@@ -235,35 +311,30 @@ section h2 {
 }
 
 /* ===================================
-   Сетка карточек товаров (CSS Grid)
+   Хлебные крошки
    =================================== */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: var(--space-md);
+.breadcrumbs {
+    max-width: var(--container-width);
+    margin: 0 auto var(--space-md);
+    font-size: 14px;
+    color: var(--color-muted);
+}
+
+.breadcrumbs a {
+    color: var(--color-primary);
+}
+
+.breadcrumbs span::before {
+    content: " / ";
+    color: var(--color-muted);
 }
 
 /* ===================================
-   Бейджи на карточках (absolute)
+   Подсветка якорной цели
    =================================== */
-.product-card__badge {
-    position: absolute;
-    top: var(--space-sm);
-    right: var(--space-sm);
-    padding: var(--space-xs) var(--space-sm);
-    font-size: 12px;
-    font-weight: bold;
-    color: var(--color-white);
-    border-radius: var(--radius-sm);
-    z-index: 1;
-}
-
-.product-card__badge--new {
-    background-color: var(--color-primary);
-}
-
-.product-card__badge--discount {
-    background-color: var(--color-danger);
+:target {
+    outline: 2px dashed var(--color-primary);
+    outline-offset: 4px;
 }
 
 /* ===================================
@@ -297,33 +368,57 @@ section h2 {
 }
 
 /* ===================================
-   z-index для модального окна
+   Страница каталога (CSS Grid + Flexbox)
    =================================== */
-.order-dialog {
-    z-index: 300;
+.catalog-layout {
+    max-width: var(--container-width);
+    margin: 0 auto var(--space-xl);
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-areas: "filters products";
+    gap: var(--space-lg);
 }
 
-.breadcrumbs {
-  max-width: var(--container-width);
-  margin: 0 auto var(--space-md);
-  font-size: 14px;
-  color: var(--color-muted);
+.catalog-filters {
+    grid-area: filters;
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
 }
 
-.breadcrumbs a {
-  color: var(--color-primary);
+.catalog-products {
+    grid-area: products;
 }
 
-.breadcrumbs span::before {
-  content: " / ";
-  color: var(--color-muted);
+/* ===================================
+   Форма фильтров
+   =================================== */
+.filters-form {
+    display: grid;
+    gap: var(--space-md);
 }
 
-html {
-  scroll-behavior: smooth;
+.filters-form fieldset {
+    margin: 0;
+    padding: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
 }
 
-:target {
-  outline: 2px dashed var(--color-primary);
-  outline-offset: 4px;
+.filters-form legend {
+    font-weight: 700;
+}
+
+.filters-form label {
+    display: block;
+    margin-bottom: var(--space-sm);
+}
+
+.filters-form input[type="number"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font: inherit;
 }

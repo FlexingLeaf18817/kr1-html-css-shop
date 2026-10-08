@@ -1,0 +1,23 @@
+*   [33m5159e67[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;32mfeature/flex-grid-navigation[m[33m)[m Merge pull request #5 from FlexingLeaf18817/feature/multi-page-navigation
+[31m|[m[32m\[m  
+[31m|[m * [33m5cbfdc7[m[33m ([m[1;31morigin/feature/multi-page-navigation[m[33m, [m[1;32mfeature/multi-page-navigation[m[33m)[m feat: add multi-page structure navigation and anchors
+[31m|[m[31m/[m  
+*   [33me2285da[m Merge pull request #4 from FlexingLeaf18817/feature/grid-positioning
+[33m|[m[34m\[m  
+[33m|[m * [33m8309f31[m[33m ([m[1;31morigin/feature/grid-positioning[m[33m, [m[1;32mfeature/grid-positioning[m[33m)[m feat: add grid layout and positioning (sticky, absolute, fixed, z-index)
+[33m|[m[33m/[m  
+*   [33m4f9f375[m[33m ([m[1;32mfeature/css-architecture-states[m[33m)[m Merge pull request #3 from FlexingLeaf18817/feature/form-modal-validation
+[35m|[m[36m\[m  
+[35m|[m * [33m53f1c67[m[33m ([m[1;31morigin/feature/form-modal-validation[m[33m, [m[1;32mfeature/form-modal-validation[m[33m)[m feat: add order form modal and validation
+[35m|[m[35m/[m  
+*   [33mfaecfa1[m Merge pull request #2 from FlexingLeaf18817/feature/html-css-start-page
+[1;31m|[m[1;32m\[m  
+[1;31m|[m * [33m76c11bb[m[33m ([m[1;31morigin/feature/html-css-start-page[m[33m, [m[1;32mfeature/html-css-start-page[m[33m)[m feat: add semantic HTML structure and base CSS styles
+[1;31m|[m[1;31m/[m  
+* [33m6651345[m docs: add GitHub Pages link
+*   [33m85aca4e[m Merge pull request #1 from FlexingLeaf18817/feature/start-page
+[1;33m|[m[1;34m\[m  
+[1;33m|[m * [33m61546fa[m[33m ([m[1;31morigin/feature/start-page[m[33m, [m[1;32mfeature/start-page[m[33m)[m feat: add project description section
+[1;33m|[m[1;33m/[m  
+* [33mcff2f8d[m docs: add project status to README
+* [33mbe731cf[m feat: initialize frontend project structure
