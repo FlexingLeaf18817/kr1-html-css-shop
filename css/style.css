@@ -41,55 +41,30 @@ body {
     background-color: var(--color-bg);
 }
 
-header,
-main,
-footer {
-    padding: var(--space-lg);
-}
-
-header {
+/* ===================================
+   Шапка сайта
+   =================================== */
+.site-header {
     position: sticky;
     top: 0;
     z-index: 100;
     background-color: var(--color-surface);
 }
 
-footer {
-    background-color: var(--color-surface);
-}
-
-section {
-    margin-bottom: var(--space-lg);
-}
-
-section h2 {
-    margin-top: 0;
-}
-
-/* ===================================
-   Шапка сайта
-   =================================== */
-.site-header {
+.site-header__inner {
     max-width: var(--container-width);
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    gap: var(--space-md);
+    padding: var(--space-lg);
 }
 
-.site-logo {
-    font-weight: bold;
-    text-decoration: none;
+.site-header__logo {
+    font-weight: 700;
     color: var(--color-text);
-}
-
-.site-nav {
-    justify-self: end;
+    text-decoration: none;
 }
 
 /* ===================================
-   Навигация (Flexbox)
+   Основная навигация
    =================================== */
 .site-nav__list {
     display: flex;
@@ -102,7 +77,7 @@ section h2 {
     list-style: none;
 }
 
-.site-nav__list a {
+.site-nav__link {
     display: inline-block;
     padding: var(--space-sm) var(--space-md);
     color: var(--color-primary);
@@ -110,14 +85,31 @@ section h2 {
     border-radius: var(--radius-sm);
 }
 
-.site-nav__list a:hover {
+.site-nav__link:hover {
     color: var(--color-white);
     background-color: var(--color-primary);
 }
 
-.site-nav__list a:focus-visible {
+.site-nav__link:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 3px;
+}
+
+.site-nav__link--active {
+    color: var(--color-white);
+    background-color: var(--color-primary);
+}
+
+/* ===================================
+   Основной контент и подвал
+   =================================== */
+.site-main {
+    padding: var(--space-lg);
+}
+
+.site-footer {
+    padding: var(--space-lg);
+    background-color: var(--color-surface);
 }
 
 /* ===================================
@@ -134,10 +126,6 @@ section h2 {
 .section {
     max-width: var(--container-width);
     margin: 0 auto var(--space-xl);
-}
-
-.section h2 {
-    margin-top: 0;
 }
 
 /* ===================================
@@ -157,22 +145,44 @@ section h2 {
     display: flex;
     flex-direction: column;
     gap: var(--space-sm);
-    margin-bottom: 0;
     padding: var(--space-md);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
     background-color: var(--color-bg);
 }
 
-.product-card h3 {
-    margin-top: 0;
-}
-
 .product-card:hover {
     border-color: var(--color-primary);
 }
 
-.product-card .button {
+.product-card--featured {
+    border-color: var(--color-primary);
+}
+
+.product-card--discount {
+    border-color: var(--color-danger);
+}
+
+.product-card__title {
+    margin: 0;
+    color: var(--color-text);
+}
+
+.product-card__description {
+    margin: 0;
+    color: var(--color-muted);
+}
+
+.product-card__price {
+    margin: 0;
+    font-weight: 700;
+}
+
+.product-card--discount .product-card__price {
+    color: var(--color-danger);
+}
+
+.product-card__button {
     margin-top: auto;
     align-self: flex-start;
 }
@@ -206,14 +216,31 @@ section h2 {
 .button {
     display: inline-block;
     padding: var(--space-sm) var(--space-md);
-    color: var(--color-white);
-    background-color: var(--color-primary);
-    text-decoration: none;
+    border: none;
     border-radius: var(--radius-sm);
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.button:hover {
+.button--primary {
+    color: var(--color-white);
+    background-color: var(--color-primary);
+}
+
+.button--primary:hover {
     background-color: var(--color-primary-dark);
+}
+
+.button--secondary {
+    color: var(--color-primary);
+    background-color: transparent;
+    border: 1px solid var(--color-primary);
+}
+
+.button--secondary:hover {
+    color: var(--color-white);
+    background-color: var(--color-primary);
 }
 
 .button:focus-visible {
@@ -221,7 +248,8 @@ section h2 {
     outline-offset: 3px;
 }
 
-.button:disabled {
+.button:disabled,
+.button--disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
@@ -252,21 +280,25 @@ section h2 {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+.order-dialog__title {
+    margin-top: 0;
+}
+
 /* ===================================
-   Формы
+   Форма заявки
    =================================== */
-.form-field {
+.order-form__field {
     margin-bottom: var(--space-md);
 }
 
-.form-field label {
+.order-form__label {
     display: block;
     margin-bottom: var(--space-xs);
 }
 
-.form-field input,
-.form-field select,
-.form-field textarea {
+.order-form__input,
+.order-form__select,
+.order-form__textarea {
     width: 100%;
     padding: 10px 12px;
     border: 1px solid var(--color-border);
@@ -274,34 +306,42 @@ section h2 {
     font: inherit;
 }
 
-.form-field input[type="checkbox"] {
+.order-form__input[type="checkbox"] {
     width: auto;
 }
 
-.form-field small {
+.order-form__field small {
     display: block;
     margin-top: var(--space-xs);
     color: var(--color-muted);
 }
 
-.form-field input:focus-visible,
-.form-field select:focus-visible,
-.form-field textarea:focus-visible,
-.form-actions button:focus-visible {
+.order-form__input:hover,
+.order-form__select:hover,
+.order-form__textarea:hover {
+    border-color: var(--color-primary);
+}
+
+.order-form__input:focus-visible,
+.order-form__select:focus-visible,
+.order-form__textarea:focus-visible {
     outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
+    outline-offset: 3px;
+}
+
+.order-form__actions {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
 }
 
 [aria-invalid="true"] {
     border-color: var(--color-danger);
 }
 
-.form-actions {
-    display: flex;
-    gap: var(--space-sm);
-    margin-top: var(--space-md);
-}
-
+/* ===================================
+   Сообщение об успешной отправке
+   =================================== */
 .success-message {
     max-width: var(--container-width);
     margin: var(--space-lg) auto;
@@ -320,11 +360,11 @@ section h2 {
     color: var(--color-muted);
 }
 
-.breadcrumbs a {
+.breadcrumbs__link {
     color: var(--color-primary);
 }
 
-.breadcrumbs span::before {
+.breadcrumbs__current::before {
     content: " / ";
     color: var(--color-muted);
 }
