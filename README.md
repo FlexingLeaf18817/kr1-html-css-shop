@@ -106,3 +106,10 @@ GitHub Pages: https://flexingleaf18817.github.io/kr1-html-css-shop/
 - `order-form` — форма заявки;
 - `button` — кнопка;
 - `site-footer` — подвал сайта.
+
+## Самостоятельные доработки
+
+- FAQ-блок на главной странице (`<details>/<summary>`, без JS).
+- Sticky-фильтр в каталоге (`position: sticky`).
+- Расширенный каталог до 6 товаров + модификатор `product-card--new`.
+- Дополнительные состояния кнопок (`:active`, `:disabled`) и hover-подъём карточек.
