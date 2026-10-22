@@ -193,6 +193,10 @@ body {
     align-self: flex-start;
 }
 
+.product-card--promo {
+    border-color: #f57c00;
+}
+
 /* ===================================
    Бейджи на карточках
    =================================== */
@@ -214,6 +218,11 @@ body {
 
 .product-card__badge--discount {
     background-color: var(--color-danger);
+}
+
+
+.product-card__badge--promo {
+    background-color: #f57c00; 
 }
 
 /* ===================================
