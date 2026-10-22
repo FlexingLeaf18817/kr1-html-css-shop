@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Подробное описание Смартфона Nova X.">
+    <title>Смартфон Nova X – Учебный интернет-магазин</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-header__logo" href="index.html">ShopProject</a>
+            <nav class="site-nav" aria-label="Основная навигация">
+                <ul class="site-nav__list">
+                    <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+                    <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <a class="breadcrumbs__link" href="index.html">Главная</a>
+            <span class="breadcrumbs__current">/</span>
+            <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
+            <span class="breadcrumbs__current">Смартфон Nova X</span>
+        </nav>
+
+        <section class="section product-details">
+            <div class="product-details__image-wrapper">
+                <img src="https://images.unsplash.com/photo-1598327105666-5b89351cb31b?q=80&w=800&auto=format&fit=crop" alt="Смартфон Nova X" class="product-details__image">
+            </div>
+            
+            <div class="product-details__info">
+                <h1 class="product-details__title">Смартфон Nova X</h1>
+                <p class="product-details__price">45 000 руб.</p>
+                <p class="product-details__desc">
+                    Откройте для себя новое поколение смартфонов. Яркий AMOLED-экран 6.7 дюйма, мощный процессор и тройная камера 108 Мп позволяют делать потрясающие снимки даже в темноте. Батарея 5000 мАч держит заряд до двух дней.
+                </p>
+                
+                <ul class="product-details__features">
+                    <li><strong>Встроенная память:</strong> 256 ГБ</li>
+                    <li><strong>Оперативная память:</strong> 12 ГБ</li>
+                    <li><strong>Гарантия:</strong> 24 месяца</li>
+                    <li><strong>Цвет:</strong> Космический черный</li>
+                </ul>
+
+                <button class="button button--primary product-card__button" type="button" data-product="Смартфон Nova X" style="padding: 16px 32px; font-size: 18px;">Заказать сейчас</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Учебный проект. Все права защищены.</p>
+        <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+    </footer>
+
+    <a href="#" class="scroll-top" aria-label="Наверх">↑</a>
+
+    <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+        <h2 class="order-dialog__title" id="order-dialog-title">Оформление заявки</h2>
+        <form class="order-form" id="order-form" action="#" method="post" novalidate>
+            <input id="selected-product" name="selected-product" type="hidden">
+            <div class="order-form__field"><label class="order-form__label" for="order-name">Имя</label><input class="order-form__input" id="order-name" name="name" type="text" required></div>
+            <div class="order-form__field"><label class="order-form__label" for="order-email">E-mail</label><input class="order-form__input" id="order-email" name="email" type="email" required></div>
+            <div class="order-form__field"><label class="order-form__label" for="order-phone">Телефон</label><input class="order-form__input" id="order-phone" name="phone" type="tel" required></div>
+            <div class="order-form__actions">
+                <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
+                <button class="button button--primary" type="submit">Отправить</button>
+            </div>
+        </form>
+    </dialog>
+    <p class="success-message" id="success-message" hidden>Форма успешно отправлена!</p>
+</body>
+</html>
